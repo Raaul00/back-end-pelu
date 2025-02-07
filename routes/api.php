@@ -8,6 +8,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ClientHistoryController;
+use App\Http\Controllers\AuthController;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('clients', ClientController::class);
@@ -32,3 +33,6 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::get('holamon', function () {
     return 'Hola Mon!';
 });
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
