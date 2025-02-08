@@ -43,6 +43,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        Auth::logout();
         if ($this->checkUserAuth($request->email)) {
             return $this->responseMessage(false, 'User is looged in', null, 409);
         }
