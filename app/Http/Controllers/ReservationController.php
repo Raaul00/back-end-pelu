@@ -17,7 +17,7 @@ class ReservationController extends Controller
         $request->validate([
             'client_id' => 'required|exists:clients,id',
             'service_id' => 'required|exists:services,id',
-            'employee_id' => 'required|exists:employees,id',
+            'employee_id' => 'required',
             'reservation_time' => 'required|date',
         ]);
 

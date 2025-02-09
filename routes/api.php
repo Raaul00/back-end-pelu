@@ -9,6 +9,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ClientHistoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/clients', [ClientController::class, 'index']);
@@ -46,6 +47,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/reservations/{id}', [ReservationController::class, 'show']);
     Route::put('/reservations/{id}', [ReservationController::class, 'update']);
     Route::delete('/reservations/{id}', [ReservationController::class, 'destroy']);
+
+    Route::get('/users', [UserController::class, 'index']); // Llistar usuaris
+    Route::get('/users/{id}', [UserController::class, 'show']); // Mostrar un usuari
+    Route::put('/users/{id}', [UserController::class, 'update']); // Actualitzar usuari
+    Route::delete('/users/{id}', [UserController::class, 'destroy']); // Esborrar usuari
 });
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
