@@ -58,16 +58,16 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('holamon', function () {
-    return 'Hola Mon!';
-});
+// Route::get('holamon', function () {
+//     return 'Hola Mon!';
+// });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/test', function () {
-    return response()->json(['message' => 'Connexió OK!']);
-});
+// Route::get('/test', function () {
+//     return response()->json(['message' => 'Connexió OK!']);
+// });
 
 
 Route::get('/csrf-cookie', function () {
